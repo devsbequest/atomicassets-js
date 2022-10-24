@@ -5,21 +5,21 @@ import { ParserTypes } from '..';
 import { ISchema } from './index';
 
 export default class ValueSchema implements ISchema {
-    readonly parser: ITypeParser;
+  readonly parser: ITypeParser;
 
-    constructor(type: string) {
-        if (typeof ParserTypes[type] === 'undefined') {
-            throw new SchemaError(`attribute type '${type}' not defined`);
-        }
-
-        this.parser = ParserTypes[type];
+  constructor(type: string) {
+    if (typeof ParserTypes[type] === 'undefined') {
+      throw new SchemaError(`attribute type '${type}' not defined`);
     }
 
-    deserialize(state: SerializationState): any {
-        return this.parser.deserialize(state);
-    }
+    this.parser = ParserTypes[type];
+  }
 
-    serialize(value: any): Uint8Array {
-        return this.parser.serialize(value);
-    }
+  deserialize(state: SerializationState): any {
+    return this.parser.deserialize(state);
+  }
+
+  serialize(value: any): Uint8Array {
+    return this.parser.serialize(value);
+  }
 }

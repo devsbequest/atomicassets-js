@@ -1,7 +1,7 @@
 export default class ApiError extends Error {
-    isApiError = true;
+  isApiError = true;
 
-    constructor(readonly message: any, readonly status: number) {
-        super(message);
-    }
+  constructor(readonly message: any, readonly status: number) {
+    super(message);
+  }
 }

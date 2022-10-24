@@ -4,26 +4,25 @@ import SerializationState from '../State';
 import { ITypeParser } from './index';
 
 export default class FixedParser implements ITypeParser {
-    constructor(readonly size: number) {
+  constructor(readonly size: number) {}
+
+  deserialize(state: SerializationState): any {
+    state.position += this.size;
+
+    const data = state.data.slice(state.position - this.size, state.position);
+
+    if (data.length !== this.size) {
+      throw new DeserializationError('FixedParser: read past end');
     }
 
-    deserialize(state: SerializationState): any {
-        state.position += this.size;
+    return data;
+  }
 
-        const data = state.data.slice(state.position - this.size, state.position);
-
-        if (data.length !== this.size) {
-            throw new DeserializationError('FixedParser: read past end');
-        }
-
-        return data;
+  serialize(data: any): Uint8Array {
+    if (data.length !== this.size) {
+      throw new SerializationError(`input data does not conform fixed size`);
     }
 
-    serialize(data: any): Uint8Array {
-        if (data.length !== this.size) {
-            throw new SerializationError(`input data does not conform fixed size`);
-        }
-
-        return data;
-    }
+    return data;
+  }
 }

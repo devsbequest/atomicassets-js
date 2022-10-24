@@ -8,8 +8,15 @@ import { deserialize, serialize } from './Serialization';
 import { ParserTypes } from './Serialization/Types';
 
 export {
-    RpcApi, ExplorerApi, ObjectSchema, deserialize, serialize, ParserTypes,
-    RpcActionGenerator, ExplorerActionGenerator, ActionGenerator
+  RpcApi,
+  ExplorerApi,
+  ObjectSchema,
+  deserialize,
+  serialize,
+  ParserTypes,
+  RpcActionGenerator,
+  ExplorerActionGenerator,
+  ActionGenerator,
 };
 
 export * from './API/Explorer';
