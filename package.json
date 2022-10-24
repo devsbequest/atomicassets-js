@@ -1,5 +1,5 @@
 {
-  "name": "atomicassets",
+  "name": "@benjaminbours/atomicassets",
   "description": "js module to fetch data from the atomicassets NFT standard",
   "keywords": [
     "atomicassets",
@@ -15,7 +15,7 @@
     "email": "pinknetworkx@gmail.com"
   },
   "license": "MIT",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
