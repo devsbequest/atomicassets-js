@@ -15,7 +15,7 @@
     "email": "pinknetworkx@gmail.com"
   },
   "license": "MIT",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
@@ -24,8 +24,7 @@
     "build": "yarn run build:npm && yarn run build:web",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
     "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "mocha -r ts-node/register test/**/*.test.ts",
-    "publish": "yarn run build && yarn publish"
+    "test": "mocha -r ts-node/register test/**/*.test.ts"
   },
   "dependencies": {
     "big-integer": "^1.6.51"
