@@ -1,3 +1,4 @@
+import { ISchema, ITemplate } from '../API/Explorer';
 import RpcApi from '../API/Rpc';
 import {
   ActionGenerator,
@@ -70,30 +71,40 @@ export default class RpcActionGenerator extends ActionGenerator {
     authorization: EosioAuthorizationObject[],
     authorized_minter: string,
     collection_name: string,
-    schema_name: string,
-    template_id: string,
+    schema: ISchema,
+    template: ITemplate,
     new_owner: string,
     immutable_data: object,
     mutable_data: object,
     tokens_to_back: string[],
   ): Promise<EosioActionObject[]> {
-    const template = await this.api.getTemplate(collection_name, template_id);
+    // const template = await this.api.getTemplate(collection_name, template_id);
+
+    // template.schema.format;
 
     const immutable_attribute_map = toAttributeMap(
       immutable_data,
-      await (await template.schema()).rawFormat(),
+      template.schema.format,
     );
     const mutable_attribute_map = toAttributeMap(
       mutable_data,
-      await (await template.schema()).rawFormat(),
+      template.schema.format,
     );
+    // const immutable_attribute_map = toAttributeMap(
+    //   immutable_data,
+    //   await (await template.schema()).rawFormat(),
+    // );
+    // const mutable_attribute_map = toAttributeMap(
+    //   mutable_data,
+    //   await (await template.schema()).rawFormat(),
+    // );
 
     return super.mintasset(
       authorization,
       authorized_minter,
       collection_name,
-      schema_name,
-      template_id,
+      schema,
+      template,
       new_owner,
       immutable_attribute_map,
       mutable_attribute_map,

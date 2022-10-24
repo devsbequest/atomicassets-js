@@ -1,5 +1,5 @@
 import ExplorerApi from '../API/Explorer';
-import { IConfig } from '../API/Explorer/Objects';
+import { IConfig, ISchema, ITemplate } from '../API/Explorer/Objects';
 import {
   ActionGenerator,
   EosioActionObject,
@@ -73,15 +73,13 @@ export default class ExplorerActionGenerator extends ActionGenerator {
     authorization: EosioAuthorizationObject[],
     authorized_minter: string,
     collection_name: string,
-    schema_name: string,
-    template_id: string,
+    schema: ISchema,
+    template: ITemplate,
     new_owner: string,
     immutable_data: object,
     mutable_data: object,
     tokens_to_back: string[],
   ): Promise<EosioActionObject[]> {
-    const schema = await this.api.getSchema(collection_name, schema_name);
-
     const immutable_attribute_map = toAttributeMap(
       immutable_data,
       schema.format,
@@ -92,8 +90,8 @@ export default class ExplorerActionGenerator extends ActionGenerator {
       authorization,
       authorized_minter,
       collection_name,
-      schema_name,
-      template_id,
+      schema,
+      template,
       new_owner,
       immutable_attribute_map,
       mutable_attribute_map,

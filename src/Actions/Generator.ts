@@ -1,4 +1,6 @@
+import { ISchema, ITemplate } from '../API/Explorer';
 import { SchemaFormat } from '../API/Rpc/RpcCache';
+import RpcTemplate from '../API/Rpc/Template';
 import SerializationError from '../Errors/SerializationError';
 
 export type EosioAuthorizationObject = { actor: string; permission: string };
@@ -217,8 +219,8 @@ export class ActionGenerator {
     authorization: EosioAuthorizationObject[],
     authorized_minter: string,
     collection_name: string,
-    schema_name: string,
-    template_id: string,
+    schema: ISchema,
+    template: ITemplate,
     new_asset_owner: string,
     immutable_data: AttributeMap,
     mutable_data: AttributeMap,
@@ -227,8 +229,8 @@ export class ActionGenerator {
     return this._pack(authorization, 'mintasset', {
       authorized_minter,
       collection_name,
-      schema_name,
-      template_id,
+      schema_name: schema.schema_name,
+      template_id: template.template_id,
       new_asset_owner,
       immutable_data,
       mutable_data,
