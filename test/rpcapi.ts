@@ -25,7 +25,6 @@ describe('RPC API', () => {
     console.log(asset);
     const result = await asset.toObject();
     expect(result).to.deep.equal(result);
-    done();
   }).timeout(10000);
 
   it('test caching ' + exampleAsset.id, async (done) => {
@@ -33,18 +32,15 @@ describe('RPC API', () => {
     console.log(asset);
     const result = await asset.toObject();
     expect(result).to.deep.equal(result);
-    done();
   }).timeout(10000);
 
   it('fetch offers ' + exampleAsset.id, async (done) => {
     const offers = await api.getAccountOffers(exampleAsset.owner);
-
     const result = await Promise.all(
       offers.map(async (offer) => await offer.toObject()),
     );
 
     expect(result).to.deep.equal(result);
-    done();
   }).timeout(20000);
 
   it('fetch assets ', async (done) => {
@@ -55,7 +51,6 @@ describe('RPC API', () => {
     );
 
     expect(result).to.deep.equal(result);
-    done();
   }).timeout(120000);
 
   it('fetch collection inventory ', async () => {
