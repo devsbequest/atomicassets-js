@@ -4,20 +4,20 @@ import SerializationState from '../State';
 import { ITypeParser } from './index';
 
 export default class VariableParser implements ITypeParser {
-    deserialize(state: SerializationState): any {
-        const length = varint_decode(state).toJSNumber();
-        state.position += length;
+  deserialize(state: SerializationState): any {
+    const length = varint_decode(state).toJSNumber();
+    state.position += length;
 
-        const data = state.data.slice(state.position - length, state.position);
+    const data = state.data.slice(state.position - length, state.position);
 
-        if (data.length !== length) {
-            throw new DeserializationError(`VariableParser: read past end`);
-        }
-
-        return data;
+    if (data.length !== length) {
+      throw new DeserializationError(`VariableParser: read past end`);
     }
 
-    serialize(data: any): Uint8Array {
-        return concat_byte_arrays([varint_encode(data.length), data]);
-    }
+    return data;
+  }
+
+  serialize(data: any): Uint8Array {
+    return concat_byte_arrays([varint_encode(data.length), data]);
+  }
 }

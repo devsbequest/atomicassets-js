@@ -1,1 +1,1 @@
-export default class RpcError extends Error { }
+export default class RpcError extends Error {}

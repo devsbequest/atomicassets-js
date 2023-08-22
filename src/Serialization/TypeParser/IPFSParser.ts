@@ -3,11 +3,11 @@ import SerializationState from '../State';
 import VariableParser from './VariableParser';
 
 export default class IPFSParser extends VariableParser {
-    deserialize(state: SerializationState): any {
-        return base58_encode(super.deserialize(state));
-    }
+  deserialize(state: SerializationState): any {
+    return base58_encode(super.deserialize(state));
+  }
 
-    serialize(data: string): Uint8Array {
-        return super.serialize(base58_decode(data));
-    }
+  serialize(data: string): Uint8Array {
+    return super.serialize(base58_decode(data));
+  }
 }

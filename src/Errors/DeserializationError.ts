@@ -1,3 +1,1 @@
-export default class DeserializationError extends Error {
-
-}
+export default class DeserializationError extends Error {}

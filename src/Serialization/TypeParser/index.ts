@@ -1,7 +1,7 @@
 import SerializationState from '../State';
 
 export interface ITypeParser {
-    serialize(object: any): Uint8Array;
+  serialize(object: any): Uint8Array;
 
-    deserialize(data: SerializationState): any;
+  deserialize(data: SerializationState): any;
 }

@@ -4,3 +4,6 @@ docs/
 src/
 dist/
 test/
+
+.env
+release.sh
