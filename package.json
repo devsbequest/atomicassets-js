@@ -1,5 +1,8 @@
 {
-  "name": "@benjaminbours/atomicassets",
+  "name": "@devsbequest/atomicassets",
+  "publishConfig": {
+    "@devsbequest:registry": "https://npm.pkg.github.com/devsbequest"
+  },
   "description": "js module to fetch data from the atomicassets NFT standard",
   "keywords": [
     "atomicassets",
