@@ -1,9 +1,7 @@
 {
   "name": "@devsbequest/atomicassets",
-  "publishConfig": {
-    "@devsbequest:registry": "https://npm.pkg.github.com/"
-  },
   "description": "js module to fetch data from the atomicassets NFT standard",
+  "repository": "https://github.com/devsbequest/atomicassets-js.git",
   "keywords": [
     "atomicassets",
     "nft",
@@ -18,7 +16,7 @@
     "email": "pinknetworkx@gmail.com"
   },
   "license": "MIT",
-  "version": "1.6.2",
+  "version": "1.6.0",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
